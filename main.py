@@ -49,8 +49,8 @@ def layout():
         text = request.form['text']
         non_stopwords = process_text(text)
         emotion_list = map_emotions(non_stopwords)
-        return render_template('index1.html', emotions=emotion_list, text=text)
-    return render_template('index1.html', emotions=None, text=None)
+        return render_template('index.html', emotions=emotion_list, text=text)
+    return render_template('index.html', emotions=None, text=None)
 
 if __name__ == '__main__':
     main.run(debug=True)
