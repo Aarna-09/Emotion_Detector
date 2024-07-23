@@ -7,7 +7,7 @@ from urllib.parse import quote
 
 
 # Initialize Flask app
-main = Flask(__name__)
+app = Flask(__name__)
 
 # Download necessary NLTK data
 nltk.download('stopwords')
@@ -43,7 +43,7 @@ def map_emotions(words):
                 emotion_list.append(emotion)
     return emotion_list
 
-@main.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def layout():
     if request.method == 'POST':
         text = request.form['text']
@@ -53,5 +53,5 @@ def layout():
     return render_template('index.html', emotions=None, text=None)
 
 if __name__ == '__main__':
-    main.run(debug=True)
+    app.run(debug=True)
 
