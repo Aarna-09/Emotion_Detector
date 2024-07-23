@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url('https://res.cloudinary.com/dtj4lytdt/image/upload/v1721545646/Untitled_yxn2j4.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            flex-direction: column;
+            padding-top: 10px; 
+        }
+        input[type="submit"] {
+            background-color: rgb(252, 159, 247);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/" style="display: flex; flex-direction: column;">
+        <textarea name="text" rows="10" cols="10" placeholder="Enter your text here..." style="width: 80%; margin-top: 350px; margin-left: 250px;"></textarea><br>
+        <input type="submit" value="Submit" style="margin-top: 20px; margin-left: 450px;">
+    </form>
+
+    {% if emotions %}
+        <h2>Detected Emotions:</h2>
+        <ul>
+            {% for emotion in emotions %}
+                <li>{{ emotion }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {% if text %}
+            <p>No emotions detected.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
